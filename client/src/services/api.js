@@ -1,101 +1,396 @@
-import axios from 'axios';
-import { store } from '../store';
-import { clearCredentials } from '../store/authSlice';
+import axios from "axios";
+import { store } from "../store";
+import { clearCredentials } from "../store/authSlice";
 
-// Recursively normalize _id → id (MongoDB → frontend)
+
+// MongoDB _id -> frontend id
 function normalizeIds(data) {
-  if (Array.isArray(data)) return data.map(normalizeIds);
-  if (data && typeof data === 'object' && !(data instanceof Date)) {
-    var result = {};
-    for (var k in data) {
-      result[k] = normalizeIds(data[k]);
-      if (k === '_id') result.id = data[k];
-    }
-    return result;
+
+  if (Array.isArray(data)) {
+    return data.map(normalizeIds);
   }
+
+
+  if (
+    data &&
+    typeof data === "object" &&
+    !(data instanceof Date)
+  ) {
+
+    const result = {};
+
+    for (const key in data) {
+
+      result[key] = normalizeIds(data[key]);
+
+
+      if (key === "_id") {
+        result.id = data[key];
+      }
+
+    }
+
+    return result;
+
+  }
+
+
   return data;
 }
 
-var api = axios.create({ baseURL: '/api', timeout: 15000 });
 
-api.interceptors.request.use(function(config) {
-  var token = store.getState().auth.token || localStorage.getItem('grilli_token');
-  if (token) config.headers['Authorization'] = 'Bearer ' + token;
-  return config;
+
+// Production + Local API URL
+
+const api = axios.create({
+
+  baseURL:
+    import.meta.env.VITE_API_URL
+      ? `${import.meta.env.VITE_API_URL}/api`
+      : "/api",
+
+
+  timeout:15000,
+
+
+  withCredentials:true
+
 });
 
-api.interceptors.response.use(
-  function(res) {
-    return normalizeIds(res.data);
+
+
+
+
+// Attach JWT token
+
+api.interceptors.request.use(
+  
+  (config)=>{
+
+
+    const token =
+      store.getState().auth.token ||
+      localStorage.getItem("grilli_token");
+
+
+    if(token){
+
+      config.headers.Authorization =
+        `Bearer ${token}`;
+
+    }
+
+
+    return config;
+
   },
-  function(err) {
-    if (err.response && err.response.status === 401) store.dispatch(clearCredentials());
-    var msg = (err.response && err.response.data && err.response.data.message) || err.message || 'Something went wrong';
-    return Promise.reject(new Error(msg));
-  }
+
+
+  (error)=>Promise.reject(error)
+
 );
 
-export var authApi = {
-  register:       function(d)     { return api.post('/auth/register', d); },
-  login:          function(d)     { return api.post('/auth/login', d); },
-  logout:         function()      { return api.post('/auth/logout'); },
-  me:             function()      { return api.get('/auth/me'); },
-  updateProfile:  function(d)     { return api.put('/auth/profile', d); },
-  changePassword: function(d)     { return api.put('/auth/change-password', d); },
-  forgotPassword: function(d)     { return api.post('/auth/forgot-password', d); },
-  resetPassword:  function(t, d)  { return api.put('/auth/reset-password/' + t, d); },
+
+
+
+
+
+
+// Response handling
+
+api.interceptors.response.use(
+
+
+  (response)=>{
+
+    return normalizeIds(response.data);
+
+  },
+
+
+  (error)=>{
+
+
+    if(
+      error.response &&
+      error.response.status === 401
+    ){
+
+      store.dispatch(
+        clearCredentials()
+      );
+
+    }
+
+
+    const message =
+      error.response?.data?.message ||
+      error.message ||
+      "Something went wrong";
+
+
+    return Promise.reject(
+      new Error(message)
+    );
+
+  }
+
+);
+
+
+
+
+
+
+
+// AUTH API
+
+export const authApi = {
+
+
+  register:(data)=>
+    api.post("/auth/register",data),
+
+
+  login:(data)=>
+    api.post("/auth/login",data),
+
+
+  logout:()=>
+    api.post("/auth/logout"),
+
+
+  me:()=>
+    api.get("/auth/me"),
+
+
+  updateProfile:(data)=>
+    api.put("/auth/profile",data),
+
+
+  changePassword:(data)=>
+    api.put("/auth/change-password",data),
+
+
+  forgotPassword:(data)=>
+    api.post("/auth/forgot-password",data),
+
+
+  resetPassword:(token,data)=>
+    api.put(`/auth/reset-password/${token}`,data)
+
 };
 
-export var menuApi = {
-  getAll:        function(p)     { return api.get('/menu', { params: p }); },
-  getById:       function(id)    { return api.get('/menu/' + id); },
-  getCategories: function()      { return api.get('/menu/categories'); },
-  getFeatured:   function()      { return api.get('/menu/featured'); },
-  getSpecial:    function()      { return api.get('/menu/special'); },
-  getPopular:    function()      { return api.get('/menu/popular'); },
-  getRecommended:function()      { return api.get('/menu/recommended'); },
-  getTrending:   function()      { return api.get('/menu/trending'); },
-  create:        function(d)     { return api.post('/menu', d); },
-  update:        function(id, d) { return api.put('/menu/' + id, d); },
-  remove:        function(id)    { return api.delete('/menu/' + id); },
+
+
+
+
+
+
+// MENU API
+
+export const menuApi = {
+
+
+  getAll:(params)=>
+    api.get("/menu",{params}),
+
+
+  getById:(id)=>
+    api.get(`/menu/${id}`),
+
+
+  getCategories:()=>
+    api.get("/menu/categories"),
+
+
+  getFeatured:()=>
+    api.get("/menu/featured"),
+
+
+  getSpecial:()=>
+    api.get("/menu/special"),
+
+
+  getPopular:()=>
+    api.get("/menu/popular"),
+
+
+  getRecommended:()=>
+    api.get("/menu/recommended"),
+
+
+  getTrending:()=>
+    api.get("/menu/trending"),
+
+
+  create:(data)=>
+    api.post("/menu",data),
+
+
+  update:(id,data)=>
+    api.put(`/menu/${id}`,data),
+
+
+  remove:(id)=>
+    api.delete(`/menu/${id}`)
+
 };
 
-export var orderApi = {
-  create:        function(d)     { return api.post('/orders', d); },
-  getAll:        function(p)     { return api.get('/orders', { params: p }); },
-  getById:       function(id)    { return api.get('/orders/' + id); },
-  updateStatus:  function(id, d) { return api.put('/orders/' + id + '/status', d); },
-  createPayment: function(d)     { return api.post('/orders/create-payment', d); },
-  verifyPayment: function(d)     { return api.post('/orders/verify-payment', d); },
+
+
+
+
+
+
+// ORDER API
+
+export const orderApi = {
+
+
+  create:(data)=>
+    api.post("/orders",data),
+
+
+  getAll:(params)=>
+    api.get("/orders",{params}),
+
+
+  getById:(id)=>
+    api.get(`/orders/${id}`),
+
+
+  updateStatus:(id,data)=>
+    api.put(`/orders/${id}/status`,data),
+
+
+  createPayment:(data)=>
+    api.post("/orders/create-payment",data),
+
+
+  verifyPayment:(data)=>
+    api.post("/orders/verify-payment",data)
+
 };
 
-export var reservationApi = {
-  create:       function(d)      { return api.post('/reservations', d); },
-  getByRef:     function(ref)    { return api.get('/reservations/' + ref); },
-  getAll:       function(p)      { return api.get('/reservations', { params: p }); },
-  updateStatus: function(ref, d) { return api.put('/reservations/' + ref + '/status', d); },
+
+
+
+
+
+
+// RESERVATION API
+
+export const reservationApi = {
+
+
+  create:(data)=>
+    api.post("/reservations",data),
+
+
+  getByRef:(ref)=>
+    api.get(`/reservations/${ref}`),
+
+
+  getAll:(params)=>
+    api.get("/reservations",{params}),
+
+
+  updateStatus:(ref,data)=>
+    api.put(`/reservations/${ref}/status`,data)
+
 };
 
-export var contentApi = {
-  getEvents:        function()      { return api.get('/content/events'); },
-  getEventById:     function(id)    { return api.get('/content/events/' + id); },
-  getTestimonials:  function()      { return api.get('/content/testimonials'); },
-  getStats:         function()      { return api.get('/content/stats'); },
-  getAnalytics:     function()      { return api.get('/content/analytics'); },
-  getNotifications: function()      { return api.get('/content/notifications'); },
-  markNotifRead:    function()      { return api.put('/content/notifications/read-all'); },
-  createEvent:      function(d)     { return api.post('/content/events', d); },
-  updateEvent:      function(id, d) { return api.put('/content/events/' + id, d); },
-  deleteEvent:      function(id)    { return api.delete('/content/events/' + id); },
-  createTestimonial:function(d)     { return api.post('/content/testimonials', d); },
-  updateTestimonial:function(id, d) { return api.put('/content/testimonials/' + id, d); },
-  deleteTestimonial:function(id)    { return api.delete('/content/testimonials/' + id); },
+
+
+
+
+
+
+// CONTENT API
+
+export const contentApi = {
+
+
+  getEvents:()=>
+    api.get("/content/events"),
+
+
+  getEventById:(id)=>
+    api.get(`/content/events/${id}`),
+
+
+  getTestimonials:()=>
+    api.get("/content/testimonials"),
+
+
+  getStats:()=>
+    api.get("/content/stats"),
+
+
+  getAnalytics:()=>
+    api.get("/content/analytics"),
+
+
+  getNotifications:()=>
+    api.get("/content/notifications"),
+
+
+  markNotifRead:()=>
+    api.put("/content/notifications/read-all"),
+
+
+  createEvent:(data)=>
+    api.post("/content/events",data),
+
+
+  updateEvent:(id,data)=>
+    api.put(`/content/events/${id}`,data),
+
+
+  deleteEvent:(id)=>
+    api.delete(`/content/events/${id}`),
+
+
+  createTestimonial:(data)=>
+    api.post("/content/testimonials",data),
+
+
+  updateTestimonial:(id,data)=>
+    api.put(`/content/testimonials/${id}`,data),
+
+
+  deleteTestimonial:(id)=>
+    api.delete(`/content/testimonials/${id}`)
+
 };
 
-export var adminApi = {
-  getUsers:   function(p)     { return api.get('/admin/users', { params: p }); },
-  updateUser: function(id, d) { return api.put('/admin/users/' + id, d); },
-  deleteUser: function(id)    { return api.delete('/admin/users/' + id); },
+
+
+
+
+
+
+// ADMIN API
+
+export const adminApi = {
+
+
+  getUsers:(params)=>
+    api.get("/admin/users",{params}),
+
+
+  updateUser:(id,data)=>
+    api.put(`/admin/users/${id}`,data),
+
+
+  deleteUser:(id)=>
+    api.delete(`/admin/users/${id}`)
+
 };
+
+
+
+
 
 export default api;
