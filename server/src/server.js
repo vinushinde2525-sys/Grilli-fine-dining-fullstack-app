@@ -26,14 +26,14 @@ const adminRoutes = require('./routes/adminRoutes');
 const app = express();
 
 
-// Render / production proxy support
+// Render / Production support
 app.set('trust proxy', 1);
 
 
 const server = http.createServer(app);
 
 
-// Allowed frontend URLs
+// Frontend URLs
 const allowedOrigins = [
   process.env.CLIENT_URL,
   "http://localhost:5173",
@@ -42,109 +42,136 @@ const allowedOrigins = [
 ].filter(Boolean);
 
 
-// Socket.IO setup
+
+// Socket.IO
 const io = new Server(server, {
-  cors: {
+
+  cors:{
     origin: allowedOrigins,
-    credentials: true
+    credentials:true
   }
+
 });
 
 
 app.set('io', io);
 
 
-// Database connection
+
+// Database
 connectDB();
+
 
 
 // Security middleware
 app.use(
   helmet({
-    crossOriginEmbedderPolicy: false,
-    contentSecurityPolicy: false
+    crossOriginEmbedderPolicy:false,
+    contentSecurityPolicy:false
   })
 );
+
 
 
 // CORS
 app.use(
   cors({
-    origin: function(origin, callback) {
 
-      // allow Postman/server requests
-      if (!origin) {
-        return callback(null, true);
+    origin:(origin, callback)=>{
+
+      if(!origin){
+        return callback(null,true);
       }
 
 
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
+      if(allowedOrigins.includes(origin)){
+        return callback(null,true);
       }
 
 
       return callback(
         new Error("CORS blocked: " + origin)
       );
+
     },
 
-    credentials: true
+    credentials:true
+
   })
 );
 
 
-// Body parsing
+
+// Body parser
 app.use(
   express.json({
-    limit: "10mb"
+    limit:"10mb"
   })
 );
 
 
 app.use(
   express.urlencoded({
-    extended: true,
-    limit: "10mb"
+    extended:true,
+    limit:"10mb"
   })
 );
 
 
-// Security
-app.use(mongoSanitize());
+
+// Sanitize
+app.use(
+  mongoSanitize()
+);
 
 
-// Logging
+
+// Logs
 app.use(
   morgan(
     process.env.NODE_ENV === "production"
-      ? "combined"
-      : "dev"
+    ? "combined"
+    : "dev"
   )
 );
 
 
-// Rate limiting
+
+// Rate limit
+
 const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 500,
-  message: {
+
+  windowMs:15 * 60 * 1000,
+
+  max:500,
+
+  message:{
     success:false,
     message:"Too many requests"
   }
+
 });
 
 
 const authLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000,
-  max: 30,
+
+  windowMs:60 * 60 * 1000,
+
+  max:30,
+
   message:{
     success:false,
-    message:"Too many login attempts"
+    message:"Too many authentication attempts"
   }
+
 });
 
 
-app.use('/api/', apiLimiter);
+app.use(
+  '/api/',
+  apiLimiter
+);
+
 
 app.use(
   '/api/auth/',
@@ -153,10 +180,29 @@ app.use(
 
 
 
+
+// Root route
+app.get('/', (req,res)=>{
+
+  res.json({
+
+    message:"🍽️ Grilli API is running",
+
+    status:"success"
+
+  });
+
+});
+
+
+
+
 // Health check
-app.get('/api/health', (req,res)=>{
+
+app.get('/api/health',(req,res)=>{
 
   const mongoose = require('mongoose');
+
 
   res.json({
 
@@ -177,11 +223,14 @@ app.get('/api/health', (req,res)=>{
 
   });
 
+
 });
 
 
 
-// Routes
+
+
+// API Routes
 
 app.use(
   '/api/auth',
@@ -220,10 +269,14 @@ app.use(
 
 
 
+
+
 // API 404
+
 app.use(
   '/api/*',
   (req,res)=>{
+
 
     res.status(404).json({
 
@@ -233,24 +286,33 @@ app.use(
 
     });
 
+
   }
 );
 
 
 
+
+
 // Socket handlers
+
 socketHandler(io);
 
 
 
-// Error middleware
+
+
+// Error handler
+
 app.use(errorHandler);
 
 
 
-// Render PORT
-const PORT =
-  process.env.PORT || 3001;
+
+
+// Render Port
+
+const PORT = process.env.PORT || 3001;
 
 
 
@@ -258,6 +320,7 @@ server.listen(
   PORT,
   "0.0.0.0",
   ()=>{
+
 
     console.log(`
 ====================================
@@ -267,6 +330,7 @@ server.listen(
  Health: /api/health
 ====================================
 `);
+
 
   }
 );
