@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Flavour so good you'll try to eat with your eyes.",
+    "category": "Food, Flavour",
+    "date": "2025-09-15",
+    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=700&fit=crop",
+    "description": "An evening celebrating bold flavours and vibrant presentation from our head chef."
+  },
+  {
+    "id": 2,
+    "title": "The art of healthy cooking with seasonal ingredients.",
+    "category": "Healthy Food",
+    "date": "2025-09-08",
+    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=700&fit=crop",
+    "description": "A masterclass in farm-to-table cooking featuring locally sourced produce."
+  },
+  {
+    "id": 3,
+    "title": "Wine pairing dinner with award-winning sommelier.",
+    "category": "Recipe",
+    "date": "2025-09-03",
+    "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=700&fit=crop",
+    "description": "An intimate evening pairing fine wines with our tasting menu."
+  }
+]

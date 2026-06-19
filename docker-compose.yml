@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: grilli-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - grilli-net
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: grilli-server
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      MONGODB_URI: mongodb://mongo:27017/grilli
+      JWT_SECRET: ${JWT_SECRET:-grilli_jwt_change_me}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-grilli_refresh_change_me}
+      JWT_EXPIRE: 7d
+      CLIENT_URL: http://localhost
+      EMAIL_HOST: ${EMAIL_HOST:-smtp.gmail.com}
+      EMAIL_PORT: ${EMAIL_PORT:-587}
+      EMAIL_USER: ${EMAIL_USER:-}
+      EMAIL_PASS: ${EMAIL_PASS:-}
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME:-}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY:-}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET:-}
+      RAZORPAY_KEY_ID: ${RAZORPAY_KEY_ID:-}
+      RAZORPAY_KEY_SECRET: ${RAZORPAY_KEY_SECRET:-}
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - grilli-net
+    ports:
+      - "3001:3001"
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:3001
+        VITE_RAZORPAY_KEY_ID: ${RAZORPAY_KEY_ID:-}
+    container_name: grilli-client
+    restart: unless-stopped
+    depends_on:
+      - server
+    networks:
+      - grilli-net
+    ports:
+      - "80:80"
+
+networks:
+  grilli-net:
+    driver: bridge
+
+volumes:
+  mongo-data:

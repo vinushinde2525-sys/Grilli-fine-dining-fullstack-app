@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; font-size: 10px; }
+
+  body {
+    @apply bg-eerie-1 text-white font-sans overflow-x-hidden;
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+
+  ::selection { background-color: hsl(38,61%,73%); color: #111; }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: hsl(38,61%,73%); }
+}
+
+@layer components {
+  /* Gold outlined button — Grilli signature */
+  .btn-grilli {
+    @apply relative inline-flex items-center justify-center gap-2
+           border-2 border-gold text-gold font-bold uppercase tracking-widest
+           text-xs px-10 py-4 overflow-hidden transition-all duration-300
+           hover:text-smoky-1;
+  }
+  .btn-grilli::before {
+    content: '';
+    @apply absolute bottom-full left-1/2 -translate-x-1/2
+           w-[200%] h-[200%] rounded-full bg-gold
+           transition-all duration-500 -z-10;
+  }
+  .btn-grilli:hover::before { bottom: -50%; }
+
+  /* Gold filled button */
+  .btn-grilli-solid {
+    @apply btn-grilli bg-gold text-smoky-1;
+  }
+  .btn-grilli-solid::before { @apply bg-smoky-1; }
+  .btn-grilli-solid:hover { @apply text-white; }
+
+  /* Section subtitle — gold with letter spacing */
+  .section-subtitle {
+    @apply text-gold font-bold uppercase tracking-[0.4em] text-xs block mb-3;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply font-forum text-white leading-tight;
+    font-size: clamp(2.4rem, 4vw, 4.2rem);
+  }
+
+  /* Gold underline hover link */
+  .hover-gold {
+    @apply relative max-w-max;
+  }
+  .hover-gold::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-full h-[3px]
+           border-y border-gold scale-x-0 opacity-0
+           transition-all duration-500;
+  }
+  .hover-gold:hover::after { @apply scale-x-100 opacity-100; }
+
+  /* Card shine effect on hover */
+  .card-shine {
+    @apply relative overflow-hidden;
+  }
+  .card-shine::after {
+    content: '';
+    @apply absolute top-0 left-0 w-1/2 h-full
+           bg-gradient-to-r from-transparent to-white/20
+           -skew-x-12 -translate-x-full;
+    transition: transform 1s ease;
+  }
+  .card-shine:hover::after { transform: skewX(-12deg) translateX(275%); }
+
+  /* Skeleton loader */
+  .skeleton { @apply animate-pulse bg-eerie-4 rounded; }
+
+  /* Input field */
+  .grilli-input {
+    @apply w-full bg-eerie-2 text-white h-14 px-5
+           border border-white/10 outline-none
+           placeholder-quick-silver
+           transition-colors duration-300
+           focus:border-gold;
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(90deg, hsl(38,61%,85%), hsl(38,61%,55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.6), transparent);
+  }
+
+  .scrollbar-hide { scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
+
+/* ── Mobile bottom nav clearance ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  main { padding-bottom: 64px; }
+}
+
+/* ── Swiper dots ─────────────────────────────────────────────────────────────── */
+.swiper-pagination-bullet {
+  background: hsl(38, 61%, 73%) !important;
+  opacity: 0.4;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  width: 20px !important;
+  border-radius: 2px !important;
+}
+
+/* ── Animated gold shimmer for skeleton ─────────────────────────────────────── */
+@keyframes shimmer {
+  from { background-position: -400px 0; }
+  to   { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    hsla(210,4%,9%,1) 0px,
+    hsla(210,4%,15%,1) 80px,
+    hsla(210,4%,9%,1) 160px
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+/* ── Global layout token ─────────────────────────────────────────────────────
+   All major sections use .wrap instead of max-w-7xl for full-width luxury feel
+   ──────────────────────────────────────────────────────────────────────────── */
+.wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .wrap { padding-left: 3rem; padding-right: 3rem; }
+}
+@media (min-width: 1280px) {
+  .wrap { padding-left: 4rem; padding-right: 4rem; }
+}
+
+/* Full-bleed section that still centers content */
+.section-wrap {
+  width: 100%;
+}
+
+/* Wide variant — goes to 1600px for hero / feature strips */
+.wrap-wide {
+  width: 100%;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .wrap-wide { padding-left: 3rem; padding-right: 3rem; }
+}
+@media (min-width: 1280px) {
+  .wrap-wide { padding-left: 5rem; padding-right: 5rem; }
+}
+
+/* Admin label utility */
+.label-xs { @apply text-[10px] font-bold uppercase tracking-widest text-quick-silver mb-1.5 block; }
+
+/* ── Admin utility classes ─────────────────────────────────────────── */
+.label-xs {
+  @apply block text-[10px] font-bold uppercase tracking-widest text-quick-silver mb-1.5;
+}
+
+/* Wide wrap — used by navbar / topbar for edge-to-edge layout */
+.wrap-wide {
+  width: 100%;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .wrap-wide { padding-left: 3rem; padding-right: 3rem; }
+}
+@media (min-width: 1280px) {
+  .wrap-wide { padding-left: 4rem; padding-right: 4rem; }
+}
+
+/* ── Page hero offset — accounts for Topbar (40px) + Navbar (64px) ──── */
+.page-hero {
+  padding-top: 7rem; /* 112px */
+}
+@media (min-width: 1024px) {
+  .page-hero { padding-top: 8rem; }
+}
+
+/* ── Section padding ─────────────────────────────────────────────────── */
+.section-pad {
+  @apply py-20 lg:py-28;
+}
+
+/* ── hover-bg-white utility ──────────────────────────────────────────── */
+.hover\:bg-white\/4:hover { background-color: rgba(255,255,255,0.04); }
+.hover\:bg-white\/3:hover { background-color: rgba(255,255,255,0.03); }
+
+/* ── Mobile bottom nav clearance ─────────────────────────────────── */
+@media (max-width: 1023px) {
+  footer { padding-bottom: 5rem; }
+}

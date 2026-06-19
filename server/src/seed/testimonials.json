@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Sam Johnson",
+    "role": "Food Critic",
+    "avatar": "https://i.pravatar.cc/100?img=11",
+    "text": "I wanted to thank you for inviting me down for that amazing dinner the other night. The food was extraordinary — every dish told a story, and the atmosphere was simply unforgettable.",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Elena Marchetti",
+    "role": "Regular Guest",
+    "avatar": "https://i.pravatar.cc/100?img=47",
+    "text": "Grilli has redefined fine dining for me. The lobster tortellini is a masterpiece and the service is second to none. I bring every important guest here.",
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "name": "James Whitfield",
+    "role": "Travel Blogger",
+    "avatar": "https://i.pravatar.cc/100?img=33",
+    "text": "Of all the restaurants I have visited across Europe, Grilli stands out as a place where passion for food truly shines through in every bite.",
+    "rating": 5
+  }
+]
