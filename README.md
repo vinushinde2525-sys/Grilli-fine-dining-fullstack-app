@@ -1,63 +1,160 @@
-# Grilli Restaurant — Full Stack App
+<div align="center">
 
-## Stack
-- **Frontend**: React + Vite + Redux Toolkit + React Query + Tailwind + Framer Motion
-- **Backend**: Node.js + Express + MongoDB Atlas + Socket.IO + JWT
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8a2387,50:e94057,100:f27121&height=220&section=header&text=Grilli&fontSize=80&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Full-Stack%20Fine%20Dining%20Reservation%20and%20Ordering%20Platform&descAlignY=60&descSize=18" width="100%" />
 
-## Prerequisites
-- Node.js 18+
-- MongoDB (local or Atlas)
+<br/>
 
-## Quick Start
+<p>
+  <img src="https://img.shields.io/badge/FRONTEND-REACT%20+%20VITE-E94057?style=for-the-badge&logo=react&logoColor=white&labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/BACKEND-EXPRESS.JS-000000?style=for-the-badge&logo=express&logoColor=white&labelColor=555555" />
+  <img src="https://img.shields.io/badge/DATABASE-MONGODB%20ATLAS-47A248?style=for-the-badge&logo=mongodb&logoColor=white&labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/UI-TAILWINDCSS-F27121?style=for-the-badge&logo=tailwindcss&logoColor=white&labelColor=2d2d2d" />
+</p>
 
-### 1. Backend
+<p>
+  <img src="https://img.shields.io/badge/STATE-REDUX%20TOOLKIT-764ABC?style=for-the-badge&logo=redux&logoColor=white&labelColor=555555" />
+  <img src="https://img.shields.io/badge/DATA-REACT%20QUERY-FF4154?style=for-the-badge&labelColor=555555" />
+  <img src="https://img.shields.io/badge/REALTIME-SOCKET.IO-8A2387?style=for-the-badge&logo=socketdotio&logoColor=white&labelColor=555555" />
+  <img src="https://img.shields.io/badge/AUTH-JWT-F27121?style=for-the-badge&logo=jsonwebtokens&logoColor=white&labelColor=555555" />
+  <img src="https://img.shields.io/badge/STATUS-ACTIVE-4CAF50?style=for-the-badge&labelColor=555555" />
+</p>
+
+<br/>
+
+**[🌐 Live Demo](https://grilli-fine-dining-fullstack-app.vercel.app/)** &nbsp;·&nbsp; **[📖 Docs](#-quick-start)** &nbsp;·&nbsp; **[🐛 Report Bug](#)** &nbsp;·&nbsp; **[✨ Request Feature](#)**
+
+</div>
+
+---
+
+## 📖 About the Project
+
+> **Grilli** is a full-stack fine-dining platform built with **React, Redux Toolkit, React Query, Node.js, Express, and MongoDB Atlas** — combining a real-time ordering and reservation system with a complete auth flow, admin panel, and live notification layer via Socket.IO.
+
+Most restaurant demo sites are single-page menus with no real backend behind them. **Grilli** solves this with a genuine full-stack architecture: a JWT-authenticated Express API backed by MongoDB Atlas, real-time order updates over Socket.IO, and a React frontend built on Redux Toolkit + React Query for predictable client and server state.
+
+This project was built as a **portfolio-grade application** to demonstrate production-style full-stack engineering — not just feature-building, but real debugging: a documented set of root-cause bug fixes across routing, caching, auth redirects, database indexing, and WebSocket lifecycle management (see [Bugs Fixed](#-bugs-fixed) below).
+
+<details>
+<summary>📸 Screenshots &nbsp;—&nbsp; click to expand</summary>
+
+<br/>
+
+| Page | Preview |
+|------|---------|
+| 🖥️ Homepage | Hero, featured dishes, and reservation CTA |
+| 🍽️ Menu | Filterable dish grid with detail view |
+| 📅 Reservations | Booking flow with confirmation reference |
+| 🛒 Checkout & Orders | Cart → login-gated checkout → order history |
+
+</details>
+
+---
+
+## ✨ Features
+
+<details open>
+<summary>🍽️ &nbsp; Dining & Ordering</summary>
+
+<br/>
+
+- 🍽️ **Browse the menu** — categorised dishes with detail pages
+- 📅 **Make a reservation** — booking flow with a confirmation reference page
+- 🛒 **Cart & checkout** — auth-gated checkout flow with order confirmation
+- 📦 **Order history** — view past and in-progress orders, with detail pages
+- ❤️ **Wishlist** — save dishes for later
+- 🎉 **Events** — browse and view restaurant event listings
+- 🖼️ **Gallery** — visual showcase of the restaurant
+
+</details>
+
+<details>
+<summary>🔐 &nbsp; Accounts & Realtime</summary>
+
+<br/>
+
+- 🔑 **JWT authentication** — register, login, and protected routes
+- 🔔 **Live notifications** — real-time updates over Socket.IO
+- 👤 **Profile management** — authenticated user profile page
+- 🛠️ **Admin panel** — dedicated admin layout and routes for restaurant management
+
+</details>
+
+<details>
+<summary>⚙️ &nbsp; Technical Highlights</summary>
+
+<br/>
+
+- 🧩 **Redux Toolkit + React Query** — clear separation of client state vs. server state
+- 💫 **Framer Motion** — animated page transitions throughout
+- 🔌 **Socket.IO singleton pattern** — one stable connection per session, not per render
+- 🛡️ **JWT auth with refresh tokens** — access + refresh secret pair
+- 💾 **MongoDB Atlas** — with startup-time legacy index cleanup
+- ✉️ **Graceful email degradation** — app runs fully even without email credentials configured
+
+</details>
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+| Technology | Purpose |
+|------------|---------|
+| ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) | UI component library |
+| ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) | Build tooling & dev server |
+| ![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white) | Client-side state management |
+| ![React Query](https://img.shields.io/badge/React_Query-FF4154?style=flat-square&logo=reactquery&logoColor=white) | Server-state fetching & caching |
+| ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white) | Utility-first styling |
+| ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white) | Page transitions & animation |
+
+### Backend
+
+| Technology | Purpose |
+|------------|---------|
+| ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) | JavaScript server runtime |
+| ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white) | REST API framework |
+| ![MongoDB](https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white) | Cloud-hosted document database |
+| ![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?style=flat-square&logo=socketdotio&logoColor=white) | Real-time bi-directional events |
+| ![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white) | Authentication & authorization |
+
+---
+
+## 📂 Project Structure (Key Files)
+
 ```bash
-cd server
-npm install
-# Edit .env with your MongoDB URI and JWT secrets
-npm run dev
+grilli/
+│
+├── 📁 client/                          # React + Vite frontend
+│   └── src/
+│       ├── layouts/
+│       │   └── MainLayout.jsx          # Route-level layout, scroll handling
+│       ├── context/
+│       │   └── SocketContext.jsx       # Singleton Socket.IO connection
+│       ├── hooks/
+│       │   └── useApi.js               # React Query hooks
+│       ├── components/
+│       │   └── cart/
+│       │       └── CartDrawer.jsx      # Cart UI + checkout redirect logic
+│       └── main.jsx                    # React Query client config
+│
+└── 📁 server/                          # Express REST API
+    └── src/
+        ├── models/
+        │   └── Order.js                # Order schema, crypto-based orderId
+        ├── config/
+        │   └── db.js                   # Mongo connection, index cleanup
+        ├── services/
+        │   └── emailService.js         # Non-fatal email sending
+        └── seed/
+            └── seeder.js                # Database seed script
 ```
-Runs on http://localhost:3001
 
-### 2. Frontend
-```bash
-cd client
-npm install
-npm run dev
-```
-Runs on http://localhost:5173
+---
 
-### 3. Seed Database (first run)
-```bash
-cd server
-npm run seed
-```
+## 🗺️ Route Table
 
-## Bugs Fixed
-
-| # | Bug | Root Cause | Fix |
-|---|-----|-----------|-----|
-| 1 | Routes require browser refresh | `MainLayout` used `window.location` instead of React Router `useLocation`; also had double scroll handler with App.jsx `ScrollToTop` | Restored `useLocation` import; removed duplicate scroll `useEffect` from MainLayout |
-| 2 | Page flash on navigation | `AnimatePresence mode="wait"` caused old page to fully exit before new page mounted | Replaced with simple `motion.main` fade-in, no `AnimatePresence` |
-| 3 | Menu renders empty | `staleTime: Infinity` on categories meant failed fetches were never retried | `staleTime: 0` globally; categories `staleTime: 5min` |
-| 4 | Cart → Checkout login redirect broken | `CartDrawer` navigated `/login?redirect=/checkout` but `LoginPage` reads `state.from` | Fixed to `navigate('/login', { state: { from: '/checkout' } })` |
-| 5 | `POST /api/orders` 400 orderNumber already exists | Legacy MongoDB unique index `orderNumber_1` from old schema conflicting with new `orderId` field; also weak random generation | Drop legacy index on startup; use `crypto.randomBytes` + timestamp for collision-proof IDs |
-| 6 | Email 535 auth error crashes app | transporter created with placeholder creds and error propagated | Check for configured creds before creating transporter; all email failures are non-fatal warnings |
-| 7 | Socket.IO reconnects on every page navigation | `useEffect` deps included entire `user` object (new reference each render) → effect re-ran → disconnect+reconnect | Singleton socket pattern; stable primitive deps (`userId`, `userRole`, `isAuth`) |
-| 8 | 4 dishes present in seeder | Palak Paneer Tartlet, Salmon Rice Bowl, Mutton Special, Stir-Fried Noodles in seeder.js | Removed from seeder.js |
-
-## Files Modified
-- `server/src/models/Order.js` — crypto-based orderId, legacy index cleanup
-- `server/src/config/db.js` — drop `orderNumber_1` index on connect
-- `server/src/services/emailService.js` — skip if unconfigured, non-fatal errors
-- `server/src/seed/seeder.js` — 4 dishes removed
-- `client/src/layouts/MainLayout.jsx` — fixed `useLocation`, removed `AnimatePresence`
-- `client/src/main.jsx` — `staleTime: 0`, `retry: 2`
-- `client/src/hooks/useApi.js` — categories `staleTime: 5min`
-- `client/src/context/SocketContext.jsx` — singleton socket, stable effect deps
-- `client/src/components/cart/CartDrawer.jsx` — fixed login redirect
-
-## Route Table
 | Route | Component | Auth |
 |-------|-----------|------|
 | `/` | Home | Public |
@@ -73,25 +170,195 @@ npm run seed
 | `/wishlist` | WishlistPage | Public |
 | `/login` | LoginPage | Public |
 | `/register` | RegisterPage | Public |
-| `/checkout` | CheckoutPage | Auth required |
-| `/orders` | OrderHistoryPage | Auth required |
-| `/orders/:id` | OrderDetailPage | Auth required |
-| `/order-success/:id` | OrderSuccess | Auth required |
-| `/profile` | ProfilePage | Auth required |
-| `/notifications` | NotificationsPage | Auth required |
-| `/admin/*` | AdminLayout + pages | Admin only |
+| `/checkout` | CheckoutPage | 🔒 Auth required |
+| `/orders` | OrderHistoryPage | 🔒 Auth required |
+| `/orders/:id` | OrderDetailPage | 🔒 Auth required |
+| `/order-success/:id` | OrderSuccess | 🔒 Auth required |
+| `/profile` | ProfilePage | 🔒 Auth required |
+| `/notifications` | NotificationsPage | 🔒 Auth required |
+| `/admin/*` | AdminLayout + pages | 🛠️ Admin only |
 
-## Environment Variables (server/.env)
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+| Tool | Version | Required |
+|------|---------|----------|
+| Node.js | ≥ 18.x | ✅ Always |
+| MongoDB | local or Atlas | ✅ Always |
+
+---
+
+## ⚙️ Installation
+
+**Step 1 — Backend**
+
+```bash
+cd server
+npm install
+# Edit .env with your MongoDB URI and JWT secrets
+npm run dev
 ```
+
+Runs on `http://localhost:3001`
+
+**Step 2 — Frontend**
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Runs on `http://localhost:5173`
+
+**Step 3 — Seed the database (first run only)**
+
+```bash
+cd server
+npm run seed
+```
+
+---
+
+## 🌐 Live Deployment
+
+| Environment | URL |
+|-------------|-----|
+| 🚀 **Production (Live)** | **[grilli-fine-dining-fullstack-app.vercel.app](https://grilli-fine-dining-fullstack-app.vercel.app/)** |
+| 💻 Local Frontend | http://localhost:5173 |
+| 🔌 Local Backend API | http://localhost:3001 |
+
+---
+
+## 🔐 Environment Variables (`server/.env`)
+
+```env
 NODE_ENV=development
 PORT=3001
 MONGODB_URI=mongodb://127.0.0.1:27017/grilli
 JWT_SECRET=your_jwt_secret
 JWT_REFRESH_SECRET=your_refresh_secret
 JWT_EXPIRE=7d
-# Optional - app works without these
+
+# Optional — app runs fully without these
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_app_password
 CLOUDINARY_CLOUD_NAME=...
 RAZORPAY_KEY_ID=...
 ```
+
+---
+
+## 🐞 Bugs Fixed
+
+A documented log of real issues found and resolved during development — kept here as evidence of debugging process, not just feature output.
+
+| # | Bug | Root Cause | Fix |
+|---|-----|-----------|-----|
+| 1 | Routes required a browser refresh | `MainLayout` used `window.location` instead of React Router's `useLocation`; also had a duplicate scroll handler clashing with `App.jsx`'s `ScrollToTop` | Restored `useLocation` import; removed the duplicate scroll `useEffect` from `MainLayout` |
+| 2 | Page flash on navigation | `AnimatePresence mode="wait"` forced the old page to fully exit before the new page mounted | Replaced with a simple `motion.main` fade-in, no `AnimatePresence` |
+| 3 | Menu rendered empty | `staleTime: Infinity` on categories meant failed fetches were never retried | Set `staleTime: 0` globally; categories set to `staleTime: 5min` |
+| 4 | Cart → Checkout login redirect broken | `CartDrawer` navigated to `/login?redirect=/checkout`, but `LoginPage` read `state.from` instead | Fixed to `navigate('/login', { state: { from: '/checkout' } })` |
+| 5 | `POST /api/orders` returned 400 — "orderNumber already exists" | A legacy MongoDB unique index (`orderNumber_1`) from an older schema conflicted with the new `orderId` field; ID generation was also weak | Drop the legacy index on startup; generate IDs with `crypto.randomBytes` + timestamp for collision-proof uniqueness |
+| 6 | Email 535 auth error crashed the app | Mail transporter was created with placeholder credentials and the error propagated uncaught | Check for configured credentials before creating the transporter; all email failures are now non-fatal warnings |
+| 7 | Socket.IO reconnected on every page navigation | `useEffect` dependencies included the entire `user` object (a new reference on every render), re-running the effect and forcing disconnect + reconnect | Implemented a singleton socket pattern with stable primitive dependencies (`userId`, `userRole`, `isAuth`) |
+| 8 | 4 placeholder dishes present in seed data | `Palak Paneer Tartlet`, `Salmon Rice Bowl`, `Mutton Special`, and `Stir-Fried Noodles` were left in `seeder.js` | Removed from `seeder.js` |
+
+### Files Modified
+
+```
+server/src/models/Order.js              # crypto-based orderId, legacy index cleanup
+server/src/config/db.js                 # drop orderNumber_1 index on connect
+server/src/services/emailService.js     # skip if unconfigured, non-fatal errors
+server/src/seed/seeder.js               # 4 placeholder dishes removed
+client/src/layouts/MainLayout.jsx       # fixed useLocation, removed AnimatePresence
+client/src/main.jsx                     # staleTime: 0, retry: 2
+client/src/hooks/useApi.js              # categories staleTime: 5min
+client/src/context/SocketContext.jsx    # singleton socket, stable effect deps
+client/src/components/cart/CartDrawer.jsx # fixed login redirect
+```
+
+---
+
+## 🧩 Challenges & Solutions
+
+| Challenge | Solution |
+|-----------|----------|
+| Keeping a single Socket.IO connection stable across route changes | Moved to a singleton socket pattern keyed on stable primitive values instead of object references |
+| Avoiding stale/empty data after failed fetches | Tuned React Query `staleTime` per query type instead of using a single global value |
+| Making auth-gated checkout resilient to direct navigation | Standardised redirect state (`state.from`) instead of query-string redirects |
+| Keeping the app usable without third-party services configured | Made email and payment integrations fail gracefully rather than crash the server |
+
+---
+
+## 🎯 Skills Demonstrated
+
+`Full-Stack Development` &nbsp;·&nbsp; `React Architecture` &nbsp;·&nbsp; `REST API Design` &nbsp;·&nbsp; `Real-Time Systems (Socket.IO)` &nbsp;·&nbsp; `JWT Authentication` &nbsp;·&nbsp; `MongoDB & Indexing` &nbsp;·&nbsp; `Client/Server State Separation (Redux + React Query)` &nbsp;·&nbsp; `Production Debugging`
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] 💳 Live payment gateway integration (Razorpay keys are present but optional)
+- [ ] 📊 Admin analytics dashboard
+- [ ] 🗺️ Table/seating map for reservations
+- [ ] ⭐ Customer reviews on dishes
+- [ ] 📱 PWA support for mobile ordering
+
+---
+
+## 🤝 Contributing
+
+Contributions, feature suggestions, and pull requests are always welcome!
+
+```bash
+# 1. Fork the repository
+
+# 2. Create your feature branch
+git checkout -b feature/AmazingFeature
+
+# 3. Commit your changes
+git commit -m 'feat: add AmazingFeature'
+
+# 4. Push to the branch
+git push origin feature/AmazingFeature
+
+# 5. Open a Pull Request
+```
+
+---
+
+## 📄 License
+
+No license file is currently included in this repository — add a `LICENSE` file (MIT is a common choice for portfolio projects) before treating this as open source.
+
+---
+
+## 👨‍💻 Author
+
+<div align="center">
+
+**Built with ❤️ as a portfolio project**
+
+*Demonstrating expertise in:*
+
+`Full-Stack Development` &nbsp;·&nbsp; `Real-Time Systems` &nbsp;·&nbsp; `REST APIs` &nbsp;·&nbsp; `Authentication` &nbsp;·&nbsp; `Production Debugging`
+
+<br/>
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-F27121?style=for-the-badge&logo=vercel&logoColor=white)](https://grilli-fine-dining-fullstack-app.vercel.app/)
+
+</div>
+
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8a2387,50:e94057,100:f27121&height=120&section=footer" width="100%"/>
+
+**⭐ Star this repo if you found it useful — it helps more than you think! ⭐**
+
+</div>
