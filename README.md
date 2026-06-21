@@ -1,6 +1,10 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8a2387,50:e94057,100:f27121&height=220&section=header&text=Grilli&fontSize=80&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Enterprise-Grade%20Full-Stack%20Fine%20Dining%20Ordering%20%26%20Reservation%20Platform&descAlignY=60&descSize=16" width="100%" />
+<p align="center">
+
+![Grilli Banner](https://capsule-render.vercel.app/api?type=waving&color=0:8a2387,50:e94057,100:f27121&height=220&section=header&text=Grilli&fontSize=80&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Enterprise-Grade%20Full-Stack%20Fine%20Dining%20Ordering%20%26%20Reservation%20Platform&descAlignY=60&descSize=16)
+
+</p>
 
 <br/>
 
