@@ -309,7 +309,17 @@ Demonstrating expertise in:
 `Full-Stack Development`  ·  `Real-Time Systems`  ·  `REST APIs`  ·  `Authentication`  ·  `Automated Testing & CI/CD`  ·  `Production Debugging`
 
 <br/>
-Show Image
+<p align="center">
+
+<a href="https://grilli-fine-dining-fullstack-ic67m47po.vercel.app/" target="_blank">
+<img src="https://img.shields.io/badge/🚀%20Live%20Demo-Grilli%20Restaurant-f97316?style=for-the-badge&logo=vercel&logoColor=white"/>
+</a>
+
+<a href="https://github.com/vinushinde2525-sys/Grilli-fine-dining-fullstack-app" target="_blank">
+<img src="https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github"/>
+</a>
+
+</p>
 
 </div>
 
