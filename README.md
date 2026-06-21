@@ -1,9 +1,10 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:8a2387,50:e94057,100:f27121&amp;height=220&amp;section=header&amp;text=Grilli&amp;fontSize=80&amp;fontColor=fff&amp;animation=twinkling&amp;fontAlignY=38&amp;desc=Enterprise-Grade%20Full-Stack%20Fine%20Dining%20Ordering%20%26%20Reservation%20Platform&amp;descAlignY=60&amp;descSize=16" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ff7e00,50:ff9a3d,100:1B1B1B&height=220&section=header&text=Grilli%20Restaurant&fontSize=80&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Enterprise-Grade%20Full-Stack%20Food%20Ordering%20%26%20Reservation%20Platform&descAlignY=60&descSize=16" width="100%" />
 
 <br/>
 
+</div>
 <p>
   <img src="https://img.shields.io/badge/FRONTEND-REACT%20+%20VITE-E94057?style=for-the-badge&amp;logo=react&amp;logoColor=white&amp;labelColor=2d2d2d" />
   <img src="https://img.shields.io/badge/BACKEND-EXPRESS.JS-000000?style=for-the-badge&amp;logo=express&amp;logoColor=white&amp;labelColor=555555" />
