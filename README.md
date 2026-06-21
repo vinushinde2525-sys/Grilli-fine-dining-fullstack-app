@@ -4,363 +4,425 @@
 
 <br/>
 
+
 <p>
   <img src="https://img.shields.io/badge/FRONTEND-REACT%20+%20VITE-E94057?style=for-the-badge&amp;logo=react&amp;logoColor=white&amp;labelColor=2d2d2d" />
   <img src="https://img.shields.io/badge/BACKEND-EXPRESS.JS-000000?style=for-the-badge&amp;logo=express&amp;logoColor=white&amp;labelColor=555555" />
   <img src="https://img.shields.io/badge/DATABASE-MONGODB%20ATLAS-47A248?style=for-the-badge&amp;logo=mongodb&amp;logoColor=white&amp;labelColor=2d2d2d" />
-  <img src="https://img.shields.io/badge/UI-TAILWINDCSS-F27121?style=for-the-badge&amp;logo=tailwindcss&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/REALTIME-SOCKET.IO-010101?style=for-the-badge&amp;logo=socketdotio&amp;logoColor=white&amp;labelColor=2d2d2d" />
 </p>
-
 <p>
-  <img src="https://img.shields.io/badge/STATE-REDUX%20TOOLKIT-764ABC?style=for-the-badge&amp;logo=redux&amp;logoColor=white&amp;labelColor=555555" />
-  <img src="https://img.shields.io/badge/DATA-REACT%20QUERY-FF4154?style=for-the-badge&amp;labelColor=555555" />
-  <img src="https://img.shields.io/badge/REALTIME-SOCKET.IO-8A2387?style=for-the-badge&amp;logo=socketdotio&amp;logoColor=white&amp;labelColor=555555" />
+  <img src="https://img.shields.io/badge/STATE-REDUX%20TOOLKIT-764ABC?style=for-the-badge&amp;logo=redux&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/DATA-REACT%20QUERY-FF4154?style=for-the-badge&amp;logo=reactquery&amp;logoColor=white&amp;labelColor=2d2d2d" />
   <img src="https://img.shields.io/badge/AUTH-JWT-F27121?style=for-the-badge&amp;logo=jsonwebtokens&amp;logoColor=white&amp;labelColor=555555" />
-  <img src="https://img.shields.io/badge/CI-GITHUB%20ACTIONS-2088FF?style=for-the-badge&amp;logo=githubactions&amp;logoColor=white&amp;labelColor=555555" />
-  <img src="https://img.shields.io/badge/STATUS-ACTIVE-4CAF50?style=for-the-badge&amp;labelColor=555555" />
+  <img src="https://img.shields.io/badge/CI%2FCD-GITHUB%20ACTIONS-2088FF?style=for-the-badge&amp;logo=githubactions&amp;logoColor=white&amp;labelColor=2d2d2d" />
 </p>
-
+<p>
+  <img src="https://img.shields.io/badge/TESTING-JEST-C21325?style=for-the-badge&amp;logo=jest&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/DEPLOYMENT-VERCEL-000000?style=for-the-badge&amp;logo=vercel&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/STATUS-LIVE-4CAF50?style=for-the-badge&amp;labelColor=555555" />
+  <img src="https://img.shields.io/badge/License-MIT-F27121?style=for-the-badge&amp;labelColor=555555" />
+</p>
+<p>
+  <img src="https://img.shields.io/github/stars/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?style=social" />
+  <img src="https://img.shields.io/github/forks/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?style=social" />
+  <img src="https://img.shields.io/github/last-commit/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?color=F27121&amp;style=flat-square" />
+  <img src="https://img.shields.io/github/repo-size/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?color=blue&amp;style=flat-square" />
+</p>
 <br/>
-
-**[🌐 Live Demo](https://grilli-fine-dining-fullstack-ic67m47po.vercel.app/)** &nbsp;·&nbsp; **[📖 Docs](#-quick-start)** &nbsp;·&nbsp; **[🐛 Report Bug](#)** &nbsp;·&nbsp; **[✨ Request Feature](#)**
+🌐 Live Demo  ·  📖 Docs  ·  🐛 Report Bug  ·  ✨ Request Feature
 
 </div>
 
----
+📖 About the Project
 
-## 📖 About the Project
 
-> **Grilli** is a full-stack fine-dining platform built with **React, Redux Toolkit, React Query, Node.js, Express, and MongoDB Atlas** — combining a real-time ordering and reservation system with a complete auth flow, admin panel, and live notification layer via Socket.IO.
+Grilli is a production-style full-stack fine-dining platform built with React, Redux Toolkit, React Query, Node.js, Express, and MongoDB Atlas — combining a real-time ordering and reservation system with a complete JWT auth flow, admin panel, and live notification layer over Socket.IO.
 
-Most restaurant demo sites are single-page menus with no real backend behind them. **Grilli** solves this with a genuine full-stack architecture: a JWT-authenticated Express API backed by MongoDB Atlas, real-time order updates over Socket.IO, and a React frontend built on Redux Toolkit + React Query for predictable client and server state.
 
-This project was built as a **portfolio-grade application** to demonstrate production-style full-stack engineering — not just feature-building, but real debugging, automated test coverage on both ends, and a CI pipeline that verifies every pull request (see [Testing](#-testing) and [CI/CD](#-cicd) below).
+
+Most restaurant demo sites are single-page menus with no real backend behind them. Grilli goes further — a genuine full-stack ecosystem with a customer-facing storefront, auth-gated checkout, table reservations, an admin dashboard, role-based access control, and a CI pipeline that verifies every pull request.
+
+This project was built as a portfolio-grade application to demonstrate production-style engineering — not just feature-building, but real debugging, automated test coverage on both ends (Jest, Supertest, mongodb-memory-server, React Testing Library), and a CI/CD pipeline running on GitHub Actions.
 
 <details>
 <summary>📸 Screenshots &nbsp;—&nbsp; click to expand</summary>
-
 <br/>
-
-| Page | Preview |
-|------|---------|
-| 🖥️ Homepage | Hero, featured dishes, and reservation CTA |
-| 🍽️ Menu | Filterable dish grid with detail view |
-| 📅 Reservations | Booking flow with confirmation reference |
-| 🛒 Checkout & Orders | Cart → login-gated checkout → order history |
+PagePreview🖥️ HomepageHero, featured dishes, and reservation CTA🍽️ MenuFilterable dish grid with detail view📅 ReservationsBooking flow with confirmation reference🛒 Checkout & OrdersCart → login-gated checkout → order history
 
 </details>
 
----
-
-## ✨ Features
+✨ Features
 
 <details open>
 <summary>🍽️ &nbsp; Dining & Ordering</summary>
-
 <br/>
 
-- 🍽️ **Browse the menu** — category, veg/non-veg, price, and search filters
-- 📅 **Make a reservation** — booking flow with a confirmation reference page
-- 🛒 **Cart & checkout** — persistent cart (Redux Toolkit + localStorage), auth-gated checkout, Razorpay payment integration
-- 📦 **Order history** — view past and in-progress orders, with detail pages
-- ❤️ **Wishlist** — save dishes for later, plus recently viewed
-- 🎉 **Events** — browse and view restaurant event listings
-- 🖼️ **Gallery** — visual showcase of the restaurant
+🍽️ Browse the menu — category, veg/non-veg, price, and search filters, plus featured / special / popular / recommended / trending views
+📅 Make a reservation — booking flow with a confirmation reference page
+🛒 Cart & checkout — persistent cart (Redux Toolkit + localStorage), auth-gated checkout, Razorpay payment integration
+📦 Order history — view past and in-progress orders, with detail pages
+❤️ Wishlist — save dishes for later, plus recently viewed
+🎉 Events — browse and view restaurant event listings
+🖼️ Gallery — visual showcase of the restaurant
+💬 Testimonials — customer feedback shown on the storefront
+
 
 </details>
-
 <details>
-<summary>🔐 &nbsp; Accounts & Realtime</summary>
-
+<summary>🖥️ &nbsp; Admin Panel</summary>
 <br/>
 
-- 🔑 **JWT authentication** — register, login, and protected routes (access + refresh tokens)
-- 🔔 **Live notifications** — real-time updates over Socket.IO
-- 👤 **Profile management** — authenticated user profile page
-- 🛠️ **Admin panel** — dashboard with analytics (Recharts), and management of menu items, categories, orders, reservations, testimonials, events, and users
-- 🛡️ **Role-based route protection** — admin vs. customer
+📊 Analytics dashboard — revenue and content stats at a glance (Recharts)
+🍽️ Menu management — create, update, delete menu items
+📦 Order management — view all orders, update order status
+📅 Reservation management — view all reservations, update status
+🎉 Events & testimonials CMS — full CRUD on events and testimonials
+👥 User management — list, update role, and delete users
+🛡️ Role-based route protection — admin vs. customer guards on every admin route
+
 
 </details>
-
 <details>
-<summary>⚙️ &nbsp; Technical Highlights</summary>
-
+<summary>🔐 &nbsp; Authentication & Realtime</summary>
 <br/>
 
-- 🧩 **Redux Toolkit + React Query** — clear separation of client state vs. server state
-- 💫 **Framer Motion** — animated page transitions throughout
-- 🔌 **Socket.IO singleton pattern** — one stable connection per session, not per render
-- 🛡️ **JWT auth with refresh tokens** — access + refresh secret pair
-- 💾 **MongoDB Atlas** — with startup-time legacy index cleanup
-- ✉️ **Graceful email degradation** — app runs fully even without email credentials configured
-- 🔒 **Hardened API** — rate limiting, Helmet security headers, Mongo sanitization
-- 🩺 **Health-check endpoint** — for uptime monitoring
-- ✅ **Automated tests** — Jest on both frontend and backend
-- 🔁 **CI on every push/PR** — GitHub Actions runs tests + build automatically
+🔑 JWT dual-token auth — register, login, access + refresh token pair
+🔄 Token refresh — dedicated /refresh endpoint for silent re-auth
+🔐 Password management — change password, forgot/reset password via emailed token
+👤 Profile management — authenticated user profile page
+🔔 Live notifications — real-time updates over Socket.IO, with mark-all-read
+🔌 Socket.IO singleton pattern — one stable connection per session, not per render
+
+
+</details>
+<details>
+<summary>⚙️ &nbsp; DevOps & Testing</summary>
+<br/>
+
+✅ 38 automated tests — Jest + Supertest (backend) and Jest + React Testing Library (frontend)
+🔄 GitHub Actions CI/CD — test + build on every push touching client/ or server/
+🐳 Docker support — Dockerfile per app + root docker-compose.yml for local dev
+🚀 Deployed on Vercel — frontend live, backend deployable as a standalone web service
+✉️ Graceful service degradation — email, Cloudinary, and Razorpay integrations fail gracefully when not configured
+🩺 Health-check endpoint — /api/health for uptime monitoring
+🔒 Hardened API — Helmet, rate limiting, Mongo sanitization
+
 
 </details>
 
----
+🛠️ Tech Stack
 
-## 🛠️ Tech Stack
+Frontend
 
-### Frontend
+TechnologyVersionPurposeShow Image18.xUI component libraryShow Image5.xBuild tooling & dev serverShow Image2.xClient-side state managementShow Image5.xServer-state fetching & cachingShow Imagev6Client-side routingShow Image3.xUtility-first stylingShow Image11.xPage transitions & animationShow Image4.xReal-time updatesAxios, React Hook Form, Recharts, Swiper, lucide-react, react-hot-toast—HTTP client, forms, charts, carousels, icons, toasts
 
-| Technology | Purpose |
-|------------|---------|
-| ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) | UI component library |
-| ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) | Build tooling & dev server |
-| ![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white) | Client-side state management |
-| ![React Query](https://img.shields.io/badge/React_Query-FF4154?style=flat-square&logo=reactquery&logoColor=white) | Server-state fetching & caching |
-| ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white) | Utility-first styling |
-| ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white) | Page transitions & animation |
-| React Router, Axios, React Hook Form | Routing, HTTP client, form handling |
+Backend
 
-### Backend
+TechnologyVersionPurposeShow Image≥18.xJavaScript server runtimeShow Image4.xREST API frameworkShow Image—Cloud-hosted document databaseShow Image8.xODM + schema validation, startup-time index cleanupShow Image4.xReal-time event systemShow Image9.xAccess + refresh token authenticationbcryptjs, Helmet, express-rate-limit, express-mongo-sanitize, express-validator—Hashing & API hardeningCloudinary, Razorpay, Nodemailer, Winston—Image uploads, payments, transactional email, logging
 
-| Technology | Purpose |
-|------------|---------|
-| ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) | JavaScript server runtime |
-| ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white) | REST API framework |
-| ![MongoDB](https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white) | Cloud-hosted document database (Mongoose) |
-| ![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?style=flat-square&logo=socketdotio&logoColor=white) | Real-time bi-directional events |
-| ![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white) | Authentication & authorization |
-| bcryptjs, Helmet, express-rate-limit, express-mongo-sanitize | Security & hardening |
-| Cloudinary, Razorpay, Nodemailer | Image uploads, payments, transactional email |
+Testing & DevOps
 
-### Testing & CI/CD
+ToolPurposeShow ImageTest runner, frontend & backendShow ImageReact component & interaction testingSupertest, mongodb-memory-serverReal Express app + in-memory MongoDB for API testsShow ImageCI/CD pipelineShow ImageContainerised local devShow ImageFrontend deployment
 
-| Technology | Purpose |
-|------------|---------|
-| ![Jest](https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=jest&logoColor=white) | Test runner, frontend & backend |
-| React Testing Library, user-event | Component & interaction testing |
-| Supertest, mongodb-memory-server | Real Express app + in-memory MongoDB for API tests |
-| ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white) | CI pipelines for both apps |
 
----
+🏗️ Architecture
 
-## 📂 Project Structure (Key Files)
+Browser / Client
+       │
+       ▼
+React SPA (Vite)
+  ├── Redux Toolkit  →  Auth state, persisted cart
+  ├── React Query    →  Server cache (menu, orders, content)
+  ├── Socket.io      →  Singleton connection — live notifications
+  └── React Router   →  Public, auth-gated, and admin route guards
+       │
+       ▼  REST API + WebSocket
+Express.js Server (app.js / server.js split — app testable without listen())
+  ├── JWT Middleware  →  protect / optionalAuth / authorize('admin')
+  ├── Security        →  Helmet, CORS, rate limiting, mongo-sanitize
+  ├── Routes          →  auth, menu, order, reservation, content, admin
+  └── Socket.io       →  socketHandler — notification broadcasting
+       │
+       ▼
+MongoDB Atlas (Mongoose)
+  ├── User         (auth, role, profile)
+  ├── MenuItem     (categories, pricing, flags)
+  ├── Order        (items, status history, crypto-based orderId)
+  ├── Reservation  (reference code, status)
+  └── misc         (Event, Testimonial, Notification)
+       │
+       ▼
+Optional Integrations (fail gracefully if unset)
+  ├── Cloudinary  →  Image upload
+  ├── Razorpay    →  Payment processing
+  └── Nodemailer  →  Email verification + password reset
 
-\`\`\`bash
-grilli/
+
+📂 Project Structure
+
+bashgrilli/
 │
-├── 📁 client/                          # React + Vite frontend
+├── 📁 .github/
+│   └── workflows/
+│       ├── frontend.yml          # CI: install → Jest → Vite build
+│       └── backend.yml           # CI: install → Jest (Supertest + in-memory Mongo) → startup check
+│
+├── 📁 client/                    # React + Vite frontend
 │   └── src/
-│       ├── layouts/
-│       │   └── MainLayout.jsx          # Route-level layout, scroll handling
-│       ├── context/
-│       │   └── SocketContext.jsx       # Singleton Socket.IO connection
-│       ├── hooks/
-│       │   └── useApi.js               # React Query hooks
-│       ├── store/                      # Redux Toolkit slices
-│       ├── components/
-│       │   └── cart/
-│       │       └── CartDrawer.jsx      # Cart UI + checkout redirect logic
-│       └── main.jsx                    # React Query client config
-│   └── tests/                          # Jest + React Testing Library
+│       ├── 📁 components/
+│       │   ├── cart/             # CartDrawer, checkout redirect logic
+│       │   ├── home/             # Hero, featured sections
+│       │   ├── layout/           # Navbar, Footer, MainLayout
+│       │   └── ui/                # Shared UI primitives
+│       ├── 📁 context/
+│       │   └── SocketContext.jsx # Singleton Socket.IO connection
+│       ├── 📁 hooks/
+│       │   └── useApi.js         # React Query hooks
+│       ├── 📁 layouts/           # MainLayout — route-level layout, scroll handling
+│       ├── 📁 pages/             # Home, Menu, Reservation, Checkout, Orders, admin/*
+│       ├── 📁 routes/            # Protected/admin route config
+│       ├── 📁 services/          # Axios API client
+│       ├── 📁 store/             # Redux Toolkit — authSlice, store index
+│       └── main.jsx              # React Query client config
+│   └── tests/
+│       ├── unit/                 # cart, helpers, authSlice
+│       └── component/            # CartDrawer
 │
-├── 📁 server/                          # Express REST API
+├── 📁 server/                    # Express REST API
 │   └── src/
-│       ├── models/
-│       │   └── Order.js                # Order schema, crypto-based orderId
-│       ├── config/
-│       │   └── db.js                   # Mongo connection, index cleanup
-│       ├── services/
-│       │   └── emailService.js         # Non-fatal email sending
-│       ├── app.js                      # Express app (used directly by tests, no listen())
-│       ├── server.js                   # Entry point — connects DB and starts the HTTP server
-│       └── seed/
-│           └── seeder.js               # Database seed script
-│   └── tests/                          # Jest + Supertest
+│       ├── 📁 config/            # db.js — Mongo connection, legacy index cleanup
+│       ├── 📁 controllers/       # auth, menu, order, reservation, content, admin
+│       ├── 📁 middleware/        # auth (protect/authorize/optionalAuth), error
+│       ├── 📁 models/            # User, MenuItem, Order, Reservation, misc
+│       ├── 📁 routes/            # authRoutes, menuRoutes, orderRoutes, reservationRoutes, contentRoutes, adminRoutes
+│       ├── 📁 services/          # emailService — non-fatal email sending
+│       ├── 📁 seed/              # seeder.js — database seed script
+│       ├── 📁 sockets/           # socketHandler — Socket.IO event wiring
+│       ├── app.js                # Express app (used directly by tests, no listen())
+│       └── server.js             # Entry point — connects DB and starts the HTTP server
+│   └── tests/                    # auth, menu, error — Jest + Supertest
 │
-└── 📁 .github/workflows/               # CI pipelines
-    ├── frontend.yml
-    └── backend.yml
-\`\`\`
+├── docker-compose.yml
+└── README.md
 
----
 
-## 🗺️ Route Table
+🔌 API Endpoints
 
-| Route | Component | Auth |
-|-------|-----------|------|
-| \`/\` | Home | Public |
-| \`/about\` | AboutPage | Public |
-| \`/menu\` | MenuPage | Public |
-| \`/menu/:id\` | MenuDetail | Public |
-| \`/events\` | EventsPage | Public |
-| \`/events/:id\` | EventDetail | Public |
-| \`/gallery\` | GalleryPage | Public |
-| \`/contact\` | ContactPage | Public |
-| \`/reservation\` | ReservationPage | Public |
-| \`/reservation/success/:ref\` | ReservationSuccess | Public |
-| \`/wishlist\` | WishlistPage | Public |
-| \`/login\` | LoginPage | Public |
-| \`/register\` | RegisterPage | Public |
-| \`/checkout\` | CheckoutPage | 🔒 Auth required |
-| \`/orders\` | OrderHistoryPage | 🔒 Auth required |
-| \`/orders/:id\` | OrderDetailPage | 🔒 Auth required |
-| \`/order-success/:id\` | OrderSuccess | 🔒 Auth required |
-| \`/profile\` | ProfilePage | 🔒 Auth required |
-| \`/notifications\` | NotificationsPage | 🔒 Auth required |
-| \`/admin/*\` | AdminLayout + pages | 🛠️ Admin only |
+<details open>
+<summary>🔐 Authentication</summary>
+httpPOST   /api/auth/register              # Register new account
+POST   /api/auth/login                 # Login with email + password
+POST   /api/auth/logout                # Logout (protected)
+GET    /api/auth/me                    # Get current user profile (protected)
+PUT    /api/auth/profile               # Update profile (protected)
+PUT    /api/auth/change-password       # Change password (protected)
+POST   /api/auth/forgot-password       # Send password reset email
+PUT    /api/auth/reset-password/:token # Reset password with token
+POST   /api/auth/refresh               # Rotate access + refresh tokens
 
----
+</details>
+<details>
+<summary>🍽️ Menu</summary>
+httpGET    /api/menu                       # Get all items (filter, search)
+GET    /api/menu/categories            # Get all categories
+GET    /api/menu/featured              # Get featured items
+GET    /api/menu/special               # Get daily specials
+GET    /api/menu/popular               # Get popular items
+GET    /api/menu/recommended           # Get recommended items
+GET    /api/menu/trending              # Get trending items
+GET    /api/menu/:id                   # Get single item
+POST   /api/menu                       # Create item (admin)
+PUT    /api/menu/:id                   # Update item (admin)
+DELETE /api/menu/:id                   # Delete item (admin)
 
-## 🚀 Quick Start
+</details>
+<details>
+<summary>📦 Orders & 📅 Reservations</summary>
+httpPOST   /api/orders/create-payment      # Create Razorpay payment order
+POST   /api/orders/verify-payment      # Verify Razorpay payment signature
+POST   /api/orders                     # Place new order
+GET    /api/orders                     # Get all orders (protected)
+GET    /api/orders/:orderId            # Get order details (protected)
+PUT    /api/orders/:orderId/status     # Update order status (admin)
 
-### Prerequisites
+POST   /api/reservations               # Create a reservation
+GET    /api/reservations               # Get all reservations (admin)
+GET    /api/reservations/:refId        # Get reservation by reference
+PUT    /api/reservations/:refId/status # Update reservation status (admin)
 
-| Tool | Version | Required |
-|------|---------|----------|
-| Node.js | ≥ 18.x | ✅ Always |
-| MongoDB | local or Atlas | ✅ Always |
+</details>
+<details>
+<summary>🎉 Content & 🛠️ Admin</summary>
+httpGET    /api/content/events             # List events
+GET    /api/content/events/:id         # Get single event
+GET    /api/content/testimonials       # List testimonials
+GET    /api/content/stats              # Public site stats
+POST   /api/content/events             # Create event (admin)
+PUT    /api/content/events/:id         # Update event (admin)
+DELETE /api/content/events/:id         # Delete event (admin)
+POST   /api/content/testimonials       # Create testimonial (admin)
+PUT    /api/content/testimonials/:id   # Update testimonial (admin)
+DELETE /api/content/testimonials/:id   # Delete testimonial (admin)
+GET    /api/content/analytics          # Dashboard analytics (admin)
+GET    /api/content/notifications      # Get current user's notifications (protected)
+PUT    /api/content/notifications/read-all # Mark all notifications read (protected)
 
----
+GET    /api/admin/users                # List users (admin)
+PUT    /api/admin/users/:id            # Update user (admin)
+DELETE /api/admin/users/:id            # Delete user (admin)
 
-## ⚙️ Installation
+GET    /api/health                     # Health check
 
-**Step 1 — Backend**
+</details>
 
-\`\`\`bash
-cd server
+🧪 Testing
+
+38 automated tests across frontend and backend.
+
+Backend — Jest + Supertest
+
+bashcd server
+npm test
+
+Test SuiteTestsCoverageauth8Register, login, password hashing, protected routes, refresh flowmenu5Listing, filtering, 404 handlingerror6Global error-handling middlewareTotal19✅
+
+Spins up an in-memory MongoDB (mongodb-memory-server) and exercises the real Express app via supertest — no mocking of the database layer.
+
+Frontend — Jest + React Testing Library
+
+bashcd client
+npm test
+
+Test SuiteTestsCoveragecart7Add/remove/quantity reducer logichelpers7Currency/date utility functionsauthSlice5Auth reducer behaviorCartDrawer4Empty state, item rendering, removing an item, checkout buttonTotal19✅
+
+Uses React Testing Library + user-event against the real Redux store logic.
+
+
+🚀 Getting Started
+
+Prerequisites
+
+ToolVersionRequiredNode.js≥ 18.x✅ AlwaysMongoDBlocal or Atlas✅ Alwaysnpm≥ 9.x✅ Always
+
+
+⚙️ Installation
+
+Step 1 — Clone the repository
+
+bashgit clone https://github.com/vinushinde2525-sys/Grilli-fine-dining-fullstack-app.git
+cd Grilli-fine-dining-fullstack-app
+
+Step 2 — Backend
+
+bashcd server
 npm install
 cp .env.example .env   # fill in your own values
 npm start               # production
 npm run dev              # development (nodemon)
-\`\`\`
 
-Runs on \`http://localhost:3001\`
+Runs on http://localhost:3001
 
-**Step 2 — Frontend**
+Step 3 — Frontend
 
-\`\`\`bash
-cd client
+bashcd client
 npm install
 npm run dev
-\`\`\`
 
-Runs on \`http://localhost:5173\`
+Runs on http://localhost:5173
 
-**Step 3 — Seed the database (first run only)**
+Step 4 — Seed the database (first run only)
 
-\`\`\`bash
-cd server
+bashcd server
 npm run seed
-\`\`\`
 
----
 
-## 🌐 Live Deployment
+🌐 Live Deployment
 
-| Environment | URL |
-|-------------|-----|
-| 🚀 **Production (Live)** | **[grilli-fine-dining-fullstack-ic67m47po.vercel.app](https://grilli-fine-dining-fullstack-ic67m47po.vercel.app/)** |
-| 💻 Local Frontend | http://localhost:5173 |
-| 🔌 Local Backend API | http://localhost:3001 |
+EnvironmentURL🚀 Production (Live)grilli-fine-dining-fullstack-ic67m47po.vercel.app💻 Local Frontendhttp://localhost:5173🔌 Local Backend APIhttp://localhost:3001❤️ Health Checkhttp://localhost:3001/api/health
 
----
 
-## 🔐 Environment Variables
+🔐 Environment Variables
 
-### \`server/.env\`
+server/.env
 
-| Variable | Description |
-|---|---|
-| \`NODE_ENV\` | \`development\` / \`production\` / \`test\` |
-| \`PORT\` | API port (default \`3001\`) |
-| \`MONGODB_URI\` | MongoDB connection string |
-| \`JWT_SECRET\` | Secret for signing access tokens |
-| \`JWT_REFRESH_SECRET\` | Secret for signing refresh tokens |
-| \`JWT_EXPIRE\` / \`JWT_REFRESH_EXPIRE\` | Token lifetimes |
-| \`EMAIL_HOST\` / \`EMAIL_PORT\` / \`EMAIL_USER\` / \`EMAIL_PASS\` / \`EMAIL_FROM\` | SMTP credentials for transactional email — optional, app runs fully without these |
-| \`CLOUDINARY_CLOUD_NAME\` / \`CLOUDINARY_API_KEY\` / \`CLOUDINARY_API_SECRET\` | Image upload credentials |
-| \`RAZORPAY_KEY_ID\` / \`RAZORPAY_KEY_SECRET\` | Payment gateway credentials — optional |
-| \`CLIENT_URL\` | Frontend origin, used for CORS and email links |
+VariableDescriptionNODE_ENVdevelopment / production / testPORTAPI port (default 3001)MONGODB_URIMongoDB connection stringJWT_SECRETSecret for signing access tokensJWT_REFRESH_SECRETSecret for signing refresh tokensJWT_EXPIRE / JWT_REFRESH_EXPIREToken lifetimesEMAIL_HOST / EMAIL_PORT / EMAIL_USER / EMAIL_PASS / EMAIL_FROMSMTP credentials — optional, app runs fully without theseCLOUDINARY_CLOUD_NAME / CLOUDINARY_API_KEY / CLOUDINARY_API_SECRETImage upload credentials — optionalRAZORPAY_KEY_ID / RAZORPAY_KEY_SECRETPayment gateway credentials — optionalCLIENT_URLFrontend origin, used for CORS and email links
 
-See \`server/.env.example\` for the full template — no real secrets are committed.
+See server/.env.example for the full template — no real secrets are committed.
 
-### \`client/.env\`
+client/.env
 
-| Variable | Description |
-|---|---|
-| \`VITE_API_URL\` | Base URL of the backend API |
-| \`VITE_RAZORPAY_KEY_ID\` | Public Razorpay key for client-side checkout |
+VariableDescriptionVITE_API_URLBase URL of the backend APIVITE_RAZORPAY_KEY_IDPublic Razorpay key for client-side checkout
 
----
 
-## ✅ Testing
+🔄 CI/CD Pipeline
 
-Both apps use **Jest**.
+Two GitHub Actions workflows run automatically, scoped by path:
 
-\`\`\`bash
-# Backend — API routes, controllers, auth, error handling
-cd server
-npm test
-
-# Frontend — components, Redux slices, cart logic, user interactions
-cd client
-npm test
-\`\`\`
-
-**Backend** tests spin up an in-memory MongoDB (\`mongodb-memory-server\`) and exercise the real Express app via \`supertest\` — no mocking of the database layer. Coverage includes registration/login, password hashing, protected routes, menu filtering, 404 handling, and the global error-handling middleware.
-
-**Frontend** tests use **React Testing Library** + **user-event** against the real Redux store logic: cart add/remove/quantity behavior, auth slice reducers, currency/date helpers, and \`CartDrawer\` interactions (empty state, item rendering, removing an item, checkout button).
-
----
-
-## 🔁 CI/CD
-
-Two GitHub Actions workflows live in \`.github/workflows/\`:
-
-- **\`frontend.yml\`** — on push/PR touching \`client/\`: install deps → run Jest → build the Vite app. Fails the check if tests or the build fail.
-- **\`backend.yml\`** — on push/PR touching \`server/\`: install deps → run Jest (Supertest + in-memory Mongo) → start the server and curl \`/api/health\` to confirm it boots cleanly.
+Push to main
+    │
+    ├── Frontend CI (frontend.yml) — triggers on client/** changes
+    │     ├── Checkout + Node 20 setup
+    │     ├── npm ci (cached)
+    │     ├── npm test  →  19 tests ✅
+    │     └── npm run build  →  dist/ ✅
+    │
+    └── Backend CI (backend.yml) — triggers on server/** changes
+          ├── Checkout + Node 20 setup
+          ├── npm ci (cached)
+          ├── npm test  →  19 tests ✅ (Supertest + in-memory Mongo)
+          └── npm start + curl /api/health  →  startup verified ✅
 
 This means every pull request gets automatic test and build verification before merging.
 
-**Deployment**
-- **Frontend** — deploy \`client/\` as a static site (Vercel, Render Static Site, or Netlify). Build command: \`npm run build\`, publish directory: \`dist\`.
-- **Backend** — deploy \`server/\` as a web service (Render). Start command: \`npm start\`. Set all variables from the table above in the host's environment settings.
-- **Database** — MongoDB Atlas (or any managed MongoDB) — set the connection string as \`MONGODB_URI\`.
+Deployment
 
-Docker is also supported: each app has its own \`Dockerfile\`, and \`docker-compose.yml\` at the repo root runs both together for local container testing.
 
----
+Frontend — deployed on Vercel. Build command: npm run build, publish directory: dist.
+Backend — deploy server/ as a web service (Render or similar). Start command: npm start. Set all variables from the table above in the host's environment settings.
+Database — MongoDB Atlas (or any managed MongoDB) — set the connection string as MONGODB_URI.
 
-## 🧩 Challenges & Solutions
 
-| Challenge | Solution |
-|-----------|----------|
-| Keeping a single Socket.IO connection stable across route changes | Moved to a singleton socket pattern keyed on stable primitive values instead of object references |
-| Avoiding stale/empty data after failed fetches | Tuned React Query \`staleTime\` per query type instead of using a single global value |
-| Making auth-gated checkout resilient to direct navigation | Standardised redirect state (\`state.from\`) instead of query-string redirects |
-| Keeping the app usable without third-party services configured | Made email and payment integrations fail gracefully rather than crash the server |
-| Verifying every change before merge | Added GitHub Actions CI to run tests + build on both apps for every push/PR |
 
----
+🐳 Docker
 
-## 🎯 Skills Demonstrated
+bashdocker-compose up --build
+# Services: client (Nginx), server (Node.js)
 
-\`Full-Stack Development\` &nbsp;·&nbsp; \`React Architecture\` &nbsp;·&nbsp; \`REST API Design\` &nbsp;·&nbsp; \`Real-Time Systems (Socket.IO)\` &nbsp;·&nbsp; \`JWT Authentication\` &nbsp;·&nbsp; \`MongoDB & Indexing\` &nbsp;·&nbsp; \`Client/Server State Separation (Redux + React Query)\` &nbsp;·&nbsp; \`Automated Testing (Jest, RTL, Supertest)\` &nbsp;·&nbsp; \`CI/CD (GitHub Actions)\` &nbsp;·&nbsp; \`Production Debugging\`
+Each app has its own Dockerfile; docker-compose.yml at the repo root runs both together for local container testing.
 
----
 
-## 🗺️ Roadmap
+⚡ Performance & Architecture Decisions
 
-- [ ] 💳 Live payment gateway integration (Razorpay keys are present but optional)
-- [ ] 📊 Admin analytics dashboard enhancements
-- [ ] 🗺️ Table/seating map for reservations
-- [ ] ⭐ Customer reviews on dishes
-- [ ] 📱 PWA support for mobile ordering
+DecisionReasonRedux for auth, React Query for everything elseClear separation of client state vs. server-state caching — no overlap, no duplicated source of truthSocket.IO singleton keyed on primitivesStable connection across route changes instead of re-creating a socket per renderapp.js / server.js splitExpress app importable directly by supertest with no real DB connection or open portStandardised redirect state (state.from)Auth-gated checkout survives direct navigation without brittle query-string redirectsOptional integrations fail gracefullyEmail, Cloudinary, and Razorpay are non-fatal if unconfigured — app stays fully usableStartup-time legacy index cleanupAvoids stale Mongo index conflicts across schema iterations without manual intervention
 
----
 
-## 🤝 Contributing
+🧩 Challenges & Solutions
+
+ChallengeSolutionKeeping a single Socket.IO connection stable across route changesMoved to a singleton socket pattern keyed on stable primitive values instead of object referencesAvoiding stale/empty data after failed fetchesTuned React Query staleTime per query type instead of using a single global valueMaking auth-gated checkout resilient to direct navigationStandardised redirect state (state.from) instead of query-string redirectsKeeping the app usable without third-party services configuredMade email and payment integrations fail gracefully rather than crash the serverVerifying every change before mergeAdded path-scoped GitHub Actions CI to run tests + build on each app independently
+
+
+🌟 Key Highlights for Recruiters
+
+WhatDetail🏗️ Genuine full-stack architectureJWT-authenticated Express API backed by MongoDB Atlas, not a static demo🔐 Production-grade authDual JWT + refresh rotation, change/forgot/reset password flows📡 Real-time layerSocket.IO singleton pattern, live notifications, mark-all-read🛠️ Admin scopeMenu, orders, reservations, events, testimonials, analytics, user role management🧪 38 automated testsRealistic coverage across auth, menu, error handling, Redux slices, and UI components🔄 Path-scoped CI/CDGitHub Actions runs only the relevant pipeline per change — fast, focused checks🐳 Docker-readyPer-app Dockerfiles + root docker-compose.yml — zero-friction local onboarding
+
+
+🗺️ Roadmap
+
+
+ 💳 Live payment gateway integration (Razorpay keys are present but optional)
+ 📊 Admin analytics dashboard enhancements
+ 🗺️ Table/seating map for reservations
+ ⭐ Customer reviews on dishes
+ 📱 PWA support for mobile ordering
+
+
+
+🤝 Contributing
 
 Contributions, feature suggestions, and pull requests are always welcome!
 
-\`\`\`bash
-# 1. Fork the repository
+bash# 1. Fork the repository
 
 # 2. Create your feature branch
 git checkout -b feature/AmazingFeature
@@ -372,38 +434,28 @@ git commit -m 'feat: add AmazingFeature'
 git push origin feature/AmazingFeature
 
 # 5. Open a Pull Request
-\`\`\`
 
----
 
-## 📄 License
+📄 License
 
 MIT — built for portfolio/demo purposes.
 
----
 
-## 👨‍💻 Author
+👨‍💻 Author
 
 <div align="center">
+Built with ❤️ as a portfolio project
 
-**Built with ❤️ as a portfolio project**
+Demonstrating expertise in:
 
-*Demonstrating expertise in:*
-
-\`Full-Stack Development\` &nbsp;·&nbsp; \`Real-Time Systems\` &nbsp;·&nbsp; \`REST APIs\` &nbsp;·&nbsp; \`Authentication\` &nbsp;·&nbsp; \`Automated Testing & CI/CD\` &nbsp;·&nbsp; \`Production Debugging\`
+Full-Stack Development  ·  React Architecture  ·  REST API Design  ·  Real-Time Systems (Socket.IO)  ·  JWT Authentication  ·  MongoDB & Indexing  ·  Client/Server State Separation (Redux + React Query)  ·  Automated Testing (Jest, RTL, Supertest)  ·  CI/CD (GitHub Actions)
 
 <br/>
-
-[![Live Demo](https://img.shields.io/badge/Live_Demo-F27121?style=for-the-badge&logo=vercel&logoColor=white)](https://grilli-fine-dining-fullstack-ic67m47po.vercel.app/)
+Show Image
+Show Image
 
 </div>
-
----
 
 <div align="center">
-
 <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:8a2387,50:e94057,100:f27121&amp;height=120&amp;section=footer" width="100%"/>
-
-**⭐ Star this repo if you found it useful — it helps more than you think! ⭐**
-
-</div>
+⭐ Star this repo if you found it useful — it helps more than you think! ⭐
