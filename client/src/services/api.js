@@ -16,7 +16,8 @@ function normalizeIds(data) {
   return data;
 }
 
-var api = axios.create({ baseURL: '/api', timeout: 15000 });
+var API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:3001') + '/api';
+var api = axios.create({ baseURL: API_BASE, timeout: 15000 });
 
 api.interceptors.request.use(function(config) {
   var token = store.getState().auth.token || localStorage.getItem('grilli_token');
