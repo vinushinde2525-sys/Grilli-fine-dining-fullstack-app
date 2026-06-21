@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8a2387,50:e94057,100:f27121&height=220&section=header&text=Grilli&fontSize=80&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Full-Stack%20Fine%20Dining%20Reservation%20and%20Ordering%20Platform&descAlignY=60&descSize=18" width="100%" />
@@ -149,10 +150,111 @@ grilli/
         │   └── emailService.js         # Non-fatal email sending
         └── seed/
             └── seeder.js                # Database seed script
+=======
+# 🍽️ Grilli — Full-Stack Restaurant Ordering Platform
+
+A production-style MERN application for a restaurant: customers browse the menu, order food, book tables, and track orders in real time; admins manage menu items, orders, reservations, and content from a dashboard.
+
+Built as a resume-grade example of a complete MERN workflow — REST API, JWT auth, role-based admin, real-time updates via Socket.IO, automated tests, and CI.
+
+---
+
+## Features
+
+**Customer**
+- Browse menu with category, veg/non-veg, price, and search filters
+- Cart with persistent state (Redux Toolkit + localStorage)
+- Checkout and order placement, with Razorpay payment integration
+- Table reservations
+- Wishlist, recently viewed, profile management
+- Live order/reservation notifications via Socket.IO
+- Responsive, animated UI (Framer Motion, Tailwind CSS)
+
+**Admin**
+- Dashboard with analytics (Recharts)
+- Manage menu items, categories, orders, reservations, testimonials, events, users
+- Image uploads via Cloudinary
+- Role-based route protection (admin vs. customer)
+
+**Platform**
+- JWT access + refresh token authentication
+- Centralized error handling and async error wrapping
+- Rate limiting, Helmet security headers, Mongo sanitization
+- Health-check endpoint for uptime monitoring
+- Jest test suites for both frontend and backend
+- GitHub Actions CI: tests + build run automatically on every push/PR
+
+---
+
+## Tech Stack
+
+**Frontend** — React 18, Vite, Redux Toolkit, TanStack Query, React Router, Tailwind CSS, Framer Motion, Socket.IO client, Axios, React Hook Form
+
+**Backend** — Node.js, Express, MongoDB + Mongoose, Socket.IO, JWT, bcryptjs, Cloudinary, Razorpay, Nodemailer, Helmet, express-rate-limit, express-mongo-sanitize
+
+**Testing** — Jest, React Testing Library, Supertest, mongodb-memory-server
+
+**CI/CD** — GitHub Actions
+
+---
+
+## Project Structure
+
+```
+grilli-fixed/
+├── client/             # React frontend (Vite)
+│   ├── src/
+│   │   ├── components/ # UI components (cart, layout, home sections)
+│   │   ├── pages/      # Route-level pages (incl. admin/)
+│   │   ├── store/      # Redux Toolkit slices
+│   │   ├── services/   # Axios API client
+│   │   └── hooks/      # Custom hooks
+│   └── tests/          # Jest + React Testing Library
+├── server/             # Express backend
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── routes/
+│   │   ├── models/
+│   │   ├── middleware/
+│   │   ├── config/
+│   │   ├── app.js      # Express app (used directly by tests, no listen())
+│   │   └── server.js   # Entry point — connects DB and starts the HTTP server
+│   └── tests/          # Jest + Supertest
+└── .github/workflows/  # CI pipelines
 ```
 
 ---
 
+## Installation
+
+### Backend
+```bash
+cd server
+npm install
+cp .env.example .env   # fill in your own values
+npm start               # production
+npm run dev             # development (nodemon)
+```
+Runs on `http://localhost:3001`.
+
+### Frontend
+```bash
+cd client
+npm install
+npm run dev
+```
+Runs on `http://localhost:5173`.
+
+### Seed the database (optional, first run)
+```bash
+cd server
+npm run seed
+>>>>>>> 5d2a1c3 (test: add Jest testing (backend+frontend) and GitHub Actions CI workflows)
+```
+
+---
+
+<<<<<<< HEAD
 ## 🗺️ Route Table
 
 | Route | Component | Auth |
@@ -336,3 +438,75 @@ No license file is currently included in this repository — add a `LICENSE` fil
 **⭐ Star this repo if you found it useful — it helps more than you think! ⭐**
 
 </div>
+=======
+## Environment Variables
+
+### `server/.env`
+| Variable | Description |
+|---|---|
+| `NODE_ENV` | `development` / `production` / `test` |
+| `PORT` | API port (default `3001`) |
+| `MONGODB_URI` | MongoDB connection string |
+| `JWT_SECRET` | Secret for signing access tokens |
+| `JWT_REFRESH_SECRET` | Secret for signing refresh tokens |
+| `JWT_EXPIRE` / `JWT_REFRESH_EXPIRE` | Token lifetimes |
+| `EMAIL_HOST` / `EMAIL_PORT` / `EMAIL_USER` / `EMAIL_PASS` / `EMAIL_FROM` | SMTP credentials for transactional email |
+| `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` | Image upload credentials |
+| `RAZORPAY_KEY_ID` / `RAZORPAY_KEY_SECRET` | Payment gateway credentials |
+| `CLIENT_URL` | Frontend origin, used for CORS and email links |
+
+See `server/.env.example` for the full template — no real secrets are committed.
+
+### `client/.env`
+| Variable | Description |
+|---|---|
+| `VITE_API_URL` | Base URL of the backend API |
+| `VITE_RAZORPAY_KEY_ID` | Public Razorpay key for client-side checkout |
+
+---
+
+## Testing
+
+Both apps use **Jest**.
+
+```bash
+# Backend — API routes, controllers, auth, error handling
+cd server
+npm test
+
+# Frontend — components, Redux slices, cart logic, user interactions
+cd client
+npm test
+```
+
+**Backend** tests spin up an in-memory MongoDB (`mongodb-memory-server`) and exercise the real Express app via `supertest` — no mocking of the database layer. Coverage includes registration/login, password hashing, protected routes, menu filtering, 404 handling, and the global error-handling middleware.
+
+**Frontend** tests use **React Testing Library** + **user-event** against the real Redux store logic: cart add/remove/quantity behavior, auth slice reducers, currency/date helpers, and `CartDrawer` interactions (empty state, item rendering, removing an item, checkout button).
+
+---
+
+## Deployment
+
+- **Frontend** — deploy `client/` as a static site (Render Static Site, Vercel, or Netlify). Build command: `npm run build`, publish directory: `dist`.
+- **Backend** — deploy `server/` as a web service (Render). Start command: `npm start`. Set all variables from the table above in the host's environment settings.
+- **Database** — MongoDB Atlas (or any managed MongoDB) — set the connection string as `MONGODB_URI`.
+
+Docker is also supported: each app has its own `Dockerfile`, and `docker-compose.yml` at the repo root runs both together for local container testing.
+
+---
+
+## CI/CD
+
+Two GitHub Actions workflows live in `.github/workflows/`:
+
+- **`frontend.yml`** — on push/PR touching `client/`: install deps → run Jest → build the Vite app. Fails the check if tests or the build fail.
+- **`backend.yml`** — on push/PR touching `server/`: install deps → run Jest (Supertest + in-memory Mongo) → start the server and curl `/api/health` to confirm it boots cleanly.
+
+This means every pull request gets automatic test and build verification before merging.
+
+---
+
+## License
+
+MIT — built for portfolio/demo purposes.
+>>>>>>> 5d2a1c3 (test: add Jest testing (backend+frontend) and GitHub Actions CI workflows)

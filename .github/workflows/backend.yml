@@ -1,0 +1,53 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'server/**'
+      - '.github/workflows/backend.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'server/**'
+      - '.github/workflows/backend.yml'
+
+jobs:
+  test-and-validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: server/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Jest tests
+        env:
+          NODE_ENV: test
+          JWT_SECRET: ci_test_secret
+        run: npm test
+
+      - name: Validate backend starts successfully
+        env:
+          NODE_ENV: production
+          PORT: 4001
+          JWT_SECRET: ci_test_secret
+          MONGODB_URI: mongodb://127.0.0.1:27017/grilli_ci
+        run: |
+          node src/server.js &
+          SERVER_PID=$!
+          sleep 4
+          curl -sf http://localhost:4001/api/health || (kill $SERVER_PID && exit 1)
+          kill $SERVER_PID
