@@ -252,33 +252,7 @@ RAZORPAY_KEY_ID=...
 
 ---
 
-## 🐞 Bugs Fixed
 
-A documented log of real issues found and resolved during development — kept here as evidence of debugging process, not just feature output.
-
-| # | Bug | Root Cause | Fix |
-|---|-----|-----------|-----|
-| 1 | Routes required a browser refresh | `MainLayout` used `window.location` instead of React Router's `useLocation`; also had a duplicate scroll handler clashing with `App.jsx`'s `ScrollToTop` | Restored `useLocation` import; removed the duplicate scroll `useEffect` from `MainLayout` |
-| 2 | Page flash on navigation | `AnimatePresence mode="wait"` forced the old page to fully exit before the new page mounted | Replaced with a simple `motion.main` fade-in, no `AnimatePresence` |
-| 3 | Menu rendered empty | `staleTime: Infinity` on categories meant failed fetches were never retried | Set `staleTime: 0` globally; categories set to `staleTime: 5min` |
-| 4 | Cart → Checkout login redirect broken | `CartDrawer` navigated to `/login?redirect=/checkout`, but `LoginPage` read `state.from` instead | Fixed to `navigate('/login', { state: { from: '/checkout' } })` |
-| 5 | `POST /api/orders` returned 400 — "orderNumber already exists" | A legacy MongoDB unique index (`orderNumber_1`) from an older schema conflicted with the new `orderId` field; ID generation was also weak | Drop the legacy index on startup; generate IDs with `crypto.randomBytes` + timestamp for collision-proof uniqueness |
-| 6 | Email 535 auth error crashed the app | Mail transporter was created with placeholder credentials and the error propagated uncaught | Check for configured credentials before creating the transporter; all email failures are now non-fatal warnings |
-| 7 | Socket.IO reconnected on every page navigation | `useEffect` dependencies included the entire `user` object (a new reference on every render), re-running the effect and forcing disconnect + reconnect | Implemented a singleton socket pattern with stable primitive dependencies (`userId`, `userRole`, `isAuth`) |
-| 8 | 4 placeholder dishes present in seed data | `Palak Paneer Tartlet`, `Salmon Rice Bowl`, `Mutton Special`, and `Stir-Fried Noodles` were left in `seeder.js` | Removed from `seeder.js` |
-
-### Files Modified
-
-```
-server/src/models/Order.js              # crypto-based orderId, legacy index cleanup
-server/src/config/db.js                 # drop orderNumber_1 index on connect
-server/src/services/emailService.js     # skip if unconfigured, non-fatal errors
-server/src/seed/seeder.js               # 4 placeholder dishes removed
-client/src/layouts/MainLayout.jsx       # fixed useLocation, removed AnimatePresence
-client/src/main.jsx                     # staleTime: 0, retry: 2
-client/src/hooks/useApi.js              # categories staleTime: 5min
-client/src/context/SocketContext.jsx    # singleton socket, stable effect deps
-client/src/components/cart/CartDrawer.jsx # fixed login redirect
 ```
 
 ---
