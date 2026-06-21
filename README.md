@@ -5,31 +5,31 @@
 <br/>
 
 <p>
-  <img src="https://img.shields.io/badge/FRONTEND-REACT%20+%20VITE-E94057?style=for-the-badge&logo=react&logoColor=white&labelColor=2d2d2d" />
-  <img src="https://img.shields.io/badge/BACKEND-EXPRESS.JS-000000?style=for-the-badge&logo=express&logoColor=white&labelColor=555555" />
-  <img src="https://img.shields.io/badge/DATABASE-MONGODB%20ATLAS-47A248?style=for-the-badge&logo=mongodb&logoColor=white&labelColor=2d2d2d" />
-  <img src="https://img.shields.io/badge/REALTIME-SOCKET.IO-010101?style=for-the-badge&logo=socketdotio&logoColor=white&labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/FRONTEND-REACT%20+%20VITE-E94057?style=for-the-badge&amp;logo=react&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/BACKEND-EXPRESS.JS-000000?style=for-the-badge&amp;logo=express&amp;logoColor=white&amp;labelColor=555555" />
+  <img src="https://img.shields.io/badge/DATABASE-MONGODB%20ATLAS-47A248?style=for-the-badge&amp;logo=mongodb&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/REALTIME-SOCKET.IO-010101?style=for-the-badge&amp;logo=socketdotio&amp;logoColor=white&amp;labelColor=2d2d2d" />
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/STATE-REDUX%20TOOLKIT-764ABC?style=for-the-badge&logo=redux&logoColor=white&labelColor=2d2d2d" />
-  <img src="https://img.shields.io/badge/DATA-REACT%20QUERY-FF4154?style=for-the-badge&logo=reactquery&logoColor=white&labelColor=2d2d2d" />
-  <img src="https://img.shields.io/badge/AUTH-JWT-F27121?style=for-the-badge&logo=jsonwebtokens&logoColor=white&labelColor=555555" />
-  <img src="https://img.shields.io/badge/CI%2FCD-GITHUB%20ACTIONS-2088FF?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/STATE-REDUX%20TOOLKIT-764ABC?style=for-the-badge&amp;logo=redux&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/DATA-REACT%20QUERY-FF4154?style=for-the-badge&amp;logo=reactquery&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/AUTH-JWT-F27121?style=for-the-badge&amp;logo=jsonwebtokens&amp;logoColor=white&amp;labelColor=555555" />
+  <img src="https://img.shields.io/badge/CI%2FCD-GITHUB%20ACTIONS-2088FF?style=for-the-badge&amp;logo=githubactions&amp;logoColor=white&amp;labelColor=2d2d2d" />
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/TESTING-JEST-C21325?style=for-the-badge&logo=jest&logoColor=white&labelColor=2d2d2d" />
-  <img src="https://img.shields.io/badge/DEPLOYMENT-VERCEL-000000?style=for-the-badge&logo=vercel&logoColor=white&labelColor=2d2d2d" />
-  <img src="https://img.shields.io/badge/STATUS-LIVE-4CAF50?style=for-the-badge&labelColor=555555" />
-  <img src="https://img.shields.io/badge/License-MIT-F27121?style=for-the-badge&labelColor=555555" />
+  <img src="https://img.shields.io/badge/TESTING-JEST-C21325?style=for-the-badge&amp;logo=jest&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/DEPLOYMENT-VERCEL-000000?style=for-the-badge&amp;logo=vercel&amp;logoColor=white&amp;labelColor=2d2d2d" />
+  <img src="https://img.shields.io/badge/STATUS-LIVE-4CAF50?style=for-the-badge&amp;labelColor=555555" />
+  <img src="https://img.shields.io/badge/License-MIT-F27121?style=for-the-badge&amp;labelColor=555555" />
 </p>
 
 <p>
   <img src="https://img.shields.io/github/stars/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?style=social" />
   <img src="https://img.shields.io/github/forks/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?style=social" />
-  <img src="https://img.shields.io/github/last-commit/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?color=F27121&style=flat-square" />
-  <img src="https://img.shields.io/github/repo-size/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?color=blue&style=flat-square" />
+  <img src="https://img.shields.io/github/last-commit/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?color=F27121&amp;style=flat-square" />
+  <img src="https://img.shields.io/github/repo-size/vinushinde2525-sys/Grilli-fine-dining-fullstack-app?color=blue&amp;style=flat-square" />
 </p>
 
 <br/>
