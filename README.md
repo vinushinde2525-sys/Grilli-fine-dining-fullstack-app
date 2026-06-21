@@ -614,4 +614,4 @@ MIT — built for portfolio/demo purposes.
 
 **⭐ Star this repo if you found it useful — it helps more than you think! ⭐**
 
-</div>
+</div
